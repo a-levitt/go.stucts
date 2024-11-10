@@ -12,8 +12,13 @@ type User struct {
 	createdAt time.Time
 }
 
-func (u User) outputUserDetails() {
+func (u *User) outputUserDetails() {
 	fmt.Println(u.firstName, u.lastName, u.birthDate, u.createdAt)
+}
+
+func (u *User) clearUserName() {
+	u.firstName = ""
+	u.lastName = ""
 }
 
 func main() {
@@ -32,6 +37,9 @@ func main() {
 	// ... do something awesome with that gathered data!
 
 	// outputUserDetails(&appUser)
+	appUser.outputUserDetails()
+
+	appUser.clearUserName()
 	appUser.outputUserDetails()
 }
 
